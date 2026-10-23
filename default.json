@@ -1,0 +1,122 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate preset for Quentin's repositories, on Gitea and GitHub",
+  "extends": [
+    "config:recommended",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":semanticCommitScope(deps)"
+  ],
+  "timezone": "Europe/Paris",
+  "schedule": [
+    "* 1-3 * * *"
+  ],
+  "prHourlyLimit": 0,
+  "minimumReleaseAge": "3 days",
+  "platformAutomerge": false,
+  "automergeStrategy": "rebase",
+  "osvVulnerabilityAlerts": true,
+  "pre-commit": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "description": "One pull request per ecosystem for non-major updates",
+      "matchCategories": [
+        "js"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "JavaScript dependencies (non-major)",
+      "groupSlug": "js-non-major"
+    },
+    {
+      "matchCategories": [
+        "python"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "Python dependencies (non-major)",
+      "groupSlug": "python-non-major"
+    },
+    {
+      "matchCategories": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "Docker images (non-major)",
+      "groupSlug": "docker-non-major"
+    },
+    {
+      "matchCategories": [
+        "ci"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "CI actions (non-major)",
+      "groupSlug": "ci-non-major"
+    },
+    {
+      "matchManagers": [
+        "pre-commit"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "groupName": "pre-commit hooks (non-major)",
+      "groupSlug": "pre-commit-non-major"
+    },
+    {
+      "description": "Development tooling merges itself when CI passes; 0.x minors can break and stay manual",
+      "matchDepTypes": [
+        "devDependencies",
+        "dev",
+        "dev-dependencies"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "matchCurrentVersion": "!/^v?0\\./",
+      "groupName": "development dependencies (non-major)",
+      "groupSlug": "dev-non-major",
+      "automerge": true
+    },
+    {
+      "description": "A runtime moves as one exact version across .nvmrc, engines, CI and Dockerfiles",
+      "matchDepNames": [
+        "node"
+      ],
+      "groupName": "Node.js",
+      "groupSlug": "node",
+      "automerge": false
+    },
+    {
+      "matchDepNames": [
+        "python"
+      ],
+      "groupName": "Python",
+      "groupSlug": "python",
+      "automerge": false
+    },
+    {
+      "description": "The package manager moves as one version across engines, packageManager and CI",
+      "matchDepNames": [
+        "pnpm"
+      ],
+      "groupName": "pnpm",
+      "groupSlug": "pnpm",
+      "automerge": false
+    }
+  ]
+}
