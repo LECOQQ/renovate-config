@@ -1,0 +1,19 @@
+name: CI
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    # Unpinned on purpose: the Mend app always runs the latest Renovate, and nothing would
+    # bump a pin here since Renovate does not process this repository.
+    container: ghcr.io/renovatebot/renovate:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate the preset
+        run: renovate-config-validator --no-global --strict default.json
