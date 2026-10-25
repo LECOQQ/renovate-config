@@ -18,4 +18,6 @@ What it does:
 - development dependencies merge themselves, by rebase, once CI passes (0.x excluded); everything else waits for review;
 - known vulnerabilities get their own pull requests.
 
+Repositories on GitHub add `github>LECOQQ/renovate-config:github`, which lifts the night-only schedule.
+
 This repository is a read-only copy: changes are made upstream and pull requests are not merged here.

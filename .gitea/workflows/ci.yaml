@@ -15,5 +15,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Validate the preset
-        run: renovate-config-validator --no-global --strict default.json
+      - name: Validate the presets
+        run: renovate-config-validator --no-global --strict default.json github.json

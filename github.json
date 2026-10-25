@@ -1,0 +1,8 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "For repositories on GitHub, run by the Mend app: it passes about once a day at a time of its choosing, so a night window would be missed, and nothing there touches the homelab",
+  "schedule": ["at any time"],
+  "lockFileMaintenance": {
+    "schedule": ["* * * * 1"]
+  }
+}
