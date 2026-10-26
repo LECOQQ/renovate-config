@@ -124,6 +124,13 @@
       "groupName": "pnpm",
       "groupSlug": "pnpm",
       "automerge": false
+    },
+    {
+      "description": "Docker Hub often hands Renovate image tags without a release date; apply the minimum release age only when a date is known, or image updates never become eligible",
+      "matchDatasources": [
+        "docker"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ]
 }
