@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Shared Renovate preset for Quentin's repositories, on Gitea and GitHub",
+  "description": "Shared Renovate preset",
   "extends": [
     "config:recommended",
     ":semanticCommits",
